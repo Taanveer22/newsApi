@@ -1,4 +1,4 @@
-// 1st function
+// first function
 
 const handleCatagory = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
@@ -26,7 +26,8 @@ const handleCatagory = async () => {
         
 };
 
-// 2nd function
+
+// second function
 
 const handleLoadNews = async (categoryId) => {
     // console.log(categoryId);
@@ -35,13 +36,16 @@ const handleLoadNews = async (categoryId) => {
     // console.log(data);
 
     // 1st:
-    const cardContainer = document.getElementById('card-container');
+  const cardContainer = document.getElementById('card-container');
+    // for removing previous loaded data
+  cardContainer.innerHTML = "";
 
     // 2nd:
     const cardData = data.data;
     // console.log(cardData);
     cardData?.forEach((news) => {
-        console.log(news);
+        // console.log(news);
+      
         // 3rd:
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
@@ -92,13 +96,12 @@ const handleLoadNews = async (categoryId) => {
         cardContainer.appendChild(cardDiv);
 
     })
-
-    
-
-    
+   
 
 }
 
 
 
 handleCatagory();
+// for default homepage loaded value
+handleLoadNews('01');
